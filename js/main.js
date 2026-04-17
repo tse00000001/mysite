@@ -12,6 +12,8 @@ const connectLinks = [
   {
     title: "X",
     url: "https://x.com/TaraMomon",
+    secondaryTitle: "Open Contact Form",
+    secondaryUrl: "https://forms.gle/F35c4ANW9pa9Lpts9",
   },
 ];
 
@@ -133,15 +135,32 @@ function renderConnectCards() {
   const cardsMarkup = connectLinks
     .map(
       (item) => `
-        <a
-          class="connect-card"
-          href="${item.url}"
-          target="_blank"
-          rel="noopener noreferrer"
-          referrerpolicy="no-referrer"
-        >
-          <span class="connect-card__title">${item.title}</span>
-        </a>
+        <div class="connect-card">
+          <a
+            class="connect-card__link connect-card__link--primary"
+            href="${item.url}"
+            target="_blank"
+            rel="noopener noreferrer"
+            referrerpolicy="no-referrer"
+          >
+            <span class="connect-card__title">${item.title}</span>
+          </a>
+          ${
+            item.secondaryTitle && item.secondaryUrl
+              ? `
+          <a
+            class="connect-card__link connect-card__link--secondary"
+            href="${item.secondaryUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            referrerpolicy="no-referrer"
+          >
+            <span class="connect-card__subtitle">${item.secondaryTitle}</span>
+          </a>
+          `
+              : ""
+          }
+        </div>
       `,
     )
     .join("");

@@ -556,25 +556,57 @@ code {
 
 .connect-card {
   display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.connect-card__link {
+  color: var(--color-text);
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.connect-card__link--primary:hover,
+.connect-card__link--primary:focus-visible {
+  transform: translateY(-2px);
+  opacity: 0.76;
+}
+
+.connect-card__link--primary {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 72px;
   min-height: 72px;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: var(--color-text);
-  text-align: center;
-  transition:
-    transform var(--transition-base),
-    opacity var(--transition-base);
 }
 
-.connect-card:hover,
-.connect-card:focus-visible {
-  transform: translateY(-2px);
-  opacity: 0.76;
+.connect-card__link--secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(238, 244, 251, 0.28);
+  border-radius: 8px;
+  background: rgba(5, 14, 28, 0.96);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.connect-card__link--secondary:hover,
+.connect-card__link--secondary:focus-visible {
+  border-color: rgba(238, 244, 251, 0.42);
+  background: rgba(7, 18, 34, 0.98);
+}
+
+.connect-card__link--secondary:active {
+  transform: translateY(2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
 }
 
 .connect-card__title {
@@ -582,6 +614,14 @@ code {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 2rem;
   font-weight: 500;
+}
+
+.connect-card__subtitle {
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .work-modal {
