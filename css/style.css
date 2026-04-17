@@ -243,6 +243,32 @@ code {
   letter-spacing: 0.01em;
 }
 
+.hero__available {
+  display: grid;
+  gap: 6px;
+  max-width: 54rem;
+  margin-top: -2px;
+}
+
+.hero__available-label,
+.hero__available-text {
+  margin: 0;
+}
+
+.hero__available-label {
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.hero__available-text {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-width: 100%;
+}
+
 .hero__media {
   position: relative;
   margin: 12px 0 0;
@@ -668,7 +694,22 @@ code {
 
   .hero__title {
     max-width: 100%;
-    font-size: clamp(2.5rem, 14vw, 4.2rem);
+    font-size: clamp(2.2rem, 11vw, 3.7rem);
+  }
+
+  .hero__available {
+    gap: 5px;
+  }
+
+  .hero__available-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero__available-text {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    max-width: 31ch;
   }
 
   .sp {
