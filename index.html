@@ -63,37 +63,33 @@
 
       <main>
         <section class="hero section" id="hero">
-          <div class="hero__inner">
-            <h1 class="hero__title js-hero-title">
-              Worldbuilding<br />
-              Visual <br />
-              Motion
-            </h1>
+          <div class="hero__glow hero__glow--top"></div>
 
-            <div class="hero__available" aria-label="Available for services">
-              <p class="hero__available-label">Available for</p>
-              <p class="hero__available-text">
-                Visual design / Motion graphics / Simple landing pages /
-                Creative assets / Roblox / Voxel assets
-              </p>
+          <div class="hero__inner">
+            <div class="hero__copy">
+              <h1 class="hero__title js-hero-title">
+                Worldbuilding<br />
+                Visual <br />
+                Motion
+              </h1>
+
+              <div class="hero__available" aria-label="Available for services">
+                <p class="hero__available-label">Available for</p>
+                <p class="hero__available-text">
+                  Visual design / Motion graphics / Simple landing pages /
+                  Creative assets / Roblox / Voxel assets
+                </p>
+              </div>
             </div>
 
-            <figure class="hero__media js-hero-media">
-              <picture>
-                <source
-                  id="hero-image-mobile"
-                  media="(max-width: 767px)"
-                  srcset="assets/hero/sp/PortfolioHub_sp.png"
-                />
-                <img
-                  id="hero-image-default"
-                  src="assets/hero/pc/PortfolioHub_PC.png"
-                  alt="Portfolio hero visual"
-                  width="1600"
-                  height="900"
-                />
-              </picture>
-            </figure>
+            <div
+              class="hero__visual js-hero-media"
+              aria-label="Three.js hero visual"
+            >
+              <div class="hero__visual-overlay"></div>
+              <div class="hero__visual-floor"></div>
+              <div id="hero-canvas-host" class="hero__canvas-host"></div>
+            </div>
           </div>
         </section>
 
@@ -145,6 +141,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="js/main.js?v=20260417-contact-button"></script>
+    <script type="module" src="js/main.js?v=20260423-hero-cubes"></script>
   </body>
 </html>
