@@ -33,11 +33,11 @@ const portfolioLinks = [
     imageAlt: "Voxel Works card image",
   },
   {
-    label: "LANCERS",
-    title: "Client Work",
+    label: "COCONALA",
+    title: "Voxel Work",
     linkText: "Visit",
-    url: "https://www.lancers.jp/profile/DesignTworks?ref=header_menu",
-    image: "assets/works/Lancers.png",
+    url: "https://coconala.com/services/4190641",
+    image: "assets/works/coconala.png",
     imageAlt: "Work request card image",
   },
 ];
