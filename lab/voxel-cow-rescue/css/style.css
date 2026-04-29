@@ -190,7 +190,7 @@ body {
   background-repeat: no-repeat;
   background-size: auto 230%;
   pointer-events: none;
-  bottom: 48px;
+  bottom: -48px;
 }
 
 .hero-panel {
@@ -310,6 +310,7 @@ body {
     height: 36vh;
     min-height: 250px;
     background-size: auto 220%;
+    bottom: 46px;
   }
 
   .hero-panel {
@@ -340,5 +341,14 @@ body {
     background-size: 100% auto;
     background-position: center bottom;
     bottom: -16px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .front-grass {
+    height: clamp(230px, 33vh, 360px);
+    background-size: 100% auto;
+    background-position: center bottom;
+    bottom: -100px;
   }
 }
