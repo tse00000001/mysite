@@ -1,0 +1,342 @@
+:root {
+  --panel: rgba(255, 255, 255, 0.56);
+  --panel-line: rgba(255, 255, 255, 0.74);
+  --text: #163047;
+  --text-soft: rgba(22, 48, 71, 0.74);
+  --leaf: #3f7f50;
+  --sky-top: #9ed8ff;
+  --sky-mid: #d9f0ff;
+  --sky-low: #fff4cc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background: var(--sky-mid);
+}
+
+.rescue-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 18% 14%,
+      rgba(255, 255, 255, 0.86),
+      transparent 16%
+    ),
+    linear-gradient(
+      180deg,
+      var(--sky-top) 0%,
+      var(--sky-mid) 58%,
+      var(--sky-low) 100%
+    );
+  isolation: isolate;
+}
+
+.rescue-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: clamp(110px, 15vh, 235px);
+  height: clamp(210px, 30vh, 360px);
+  background: linear-gradient(
+    180deg,
+    rgba(126, 178, 85, 0.16) 0%,
+    rgba(117, 174, 82, 0.52) 34%,
+    rgba(93, 145, 71, 0.76) 72%,
+    rgba(75, 122, 62, 0.82) 100%
+  );
+  pointer-events: none;
+}
+
+.rescue-hero__mountains {
+  position: absolute;
+  z-index: 1;
+  left: -1vw;
+  right: -1vw;
+  bottom: clamp(170px, 23vh, 260px);
+  height: clamp(230px, 32vh, 360px);
+  background-image: url("../../../assets/Lab_UFO/BG_mountain.webp");
+  background-position: center 68%;
+  background-repeat: no-repeat;
+  background-size: auto 380%;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  z-index: 2;
+  width: clamp(120px, 16vw, 260px);
+  aspect-ratio: 3 / 1.25;
+  background: url("../../../assets/Lab_UFO/cloud.svg") center / contain
+    no-repeat;
+  opacity: 0.72;
+  filter: drop-shadow(0 12px 20px rgba(70, 134, 176, 0.12));
+  pointer-events: none;
+  animation: cloud-drift linear infinite;
+}
+
+.cloud--one {
+  top: 11vh;
+  left: -18vw;
+  animation-duration: 52s;
+}
+
+.cloud--two {
+  top: 22vh;
+  left: 26vw;
+  width: clamp(90px, 11vw, 180px);
+  opacity: 0.52;
+  animation-duration: 68s;
+  animation-delay: -28s;
+}
+
+.cloud--three {
+  top: 7vh;
+  left: 64vw;
+  width: clamp(150px, 18vw, 300px);
+  opacity: 0.64;
+  animation-duration: 76s;
+  animation-delay: -46s;
+}
+
+.scene-host {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.scene-host canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.ufo-beam {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 27%;
+  width: clamp(230px, 22vw, 390px);
+  height: min(46vh, 430px);
+  transform: translateX(-50%) scaleY(0.92);
+  transform-origin: 50% 8%;
+  background: url("../../../assets/Lab_UFO/UFO_Beam.svg") center top / 100% 100%
+    no-repeat;
+  opacity: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+}
+
+.ufo-beam.is-active {
+  opacity: 0.72;
+  transform: translateX(-50%) scaleY(1);
+  animation: beam-pulse 2.8s ease-in-out infinite;
+}
+
+.ufo-glow {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 62%;
+  width: min(52vw, 620px);
+  height: min(28vh, 280px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 214, 0.42),
+    transparent 66%
+  );
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+}
+
+.ufo-glow.is-active {
+  opacity: 1;
+}
+
+.front-grass {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: clamp(320px, 45vh, 520px);
+  background-image: url("../../../assets/Lab_UFO/front_grass.webp");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: auto 230%;
+  pointer-events: none;
+}
+
+.hero-panel {
+  position: absolute;
+  z-index: 6;
+  top: clamp(18px, 4vh, 44px);
+  right: clamp(16px, 4vw, 58px);
+  width: min(310px, calc(100vw - 32px));
+  padding: 16px;
+  border: 1px solid var(--panel-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 18px 44px rgba(64, 108, 110, 0.12);
+  backdrop-filter: blur(18px) saturate(1.25);
+}
+
+.hero-panel__label {
+  margin: 0;
+  color: rgba(42, 92, 86, 0.72);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.hero-panel__title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.85rem, 3vw, 2.6rem);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.hero-panel__text {
+  display: none;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.hero-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.hero-panel__actions a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 13px;
+  border: 1px solid rgba(63, 127, 80, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: #245c37;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-18vw);
+  }
+
+  to {
+    transform: translateX(128vw);
+  }
+}
+
+@keyframes beam-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 0.86;
+    filter: brightness(1.2);
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    overflow: auto;
+  }
+
+  .rescue-hero {
+    min-height: 100svh;
+  }
+
+  .rescue-hero::before {
+    bottom: 230px;
+    height: 190px;
+  }
+
+  .rescue-hero__mountains {
+    bottom: 154px;
+    height: 230px;
+    background-size: auto 360%;
+    background-position: center 68%;
+  }
+
+  .ufo-beam {
+    top: 28%;
+    width: 210px;
+    height: 42vh;
+  }
+
+  .front-grass {
+    height: 36vh;
+    min-height: 250px;
+    background-size: auto 220%;
+  }
+
+  .hero-panel {
+    top: 14px;
+    left: auto;
+    right: 14px;
+    bottom: auto;
+    width: min(260px, calc(100vw - 28px));
+    max-width: calc(100vw - 32px);
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 13px;
+  }
+
+  .hero-panel__title {
+    font-size: 1.85rem;
+  }
+
+  .hero-panel__text {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1000px) {
+  .front-grass {
+    height: 18vh;
+    background-size: cover;
+    bottom: -22px;
+  }
+}
