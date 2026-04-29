@@ -307,11 +307,11 @@ body {
   }
 
   .front-grass {
-    height: 42vh;
+    height: 45vh;
     min-height: 320px;
     background-size: auto 220%;
     background-position: center bottom;
-    bottom: -28px;
+    bottom: 0px;
   }
 
   .hero-panel {
