@@ -71,12 +71,12 @@ body {
   z-index: 1;
   left: -1vw;
   right: -1vw;
-  bottom: clamp(170px, 23vh, 260px);
-  height: clamp(230px, 32vh, 360px);
+  bottom: clamp(145px, 19vh, 225px);
+  height: clamp(210px, 28vh, 330px);
   background-image: url("../../../assets/Lab_UFO/BG_mountain.webp");
-  background-position: center 68%;
+  background-position: center 62%;
   background-repeat: no-repeat;
-  background-size: auto 380%;
+  background-size: cover;
   pointer-events: none;
 }
 
@@ -184,12 +184,13 @@ body {
   left: 0;
   right: 0;
   bottom: -1px;
-  height: clamp(320px, 45vh, 520px);
+  height: clamp(320px, 33vh, 520px);
   background-image: url("../../../assets/Lab_UFO/front_grass.webp");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: auto 230%;
   pointer-events: none;
+  bottom: 48px;
 }
 
 .hero-panel {
@@ -335,8 +336,9 @@ body {
 
 @media (min-width: 1000px) {
   .front-grass {
-    height: 18vh;
-    background-size: cover;
-    bottom: -22px;
+    height: clamp(230px, 33vh, 360px);
+    background-size: 100% auto;
+    background-position: center bottom;
+    bottom: -16px;
   }
 }
