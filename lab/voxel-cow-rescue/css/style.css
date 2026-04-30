@@ -48,33 +48,16 @@ body {
   isolation: isolate;
 }
 
-.rescue-hero::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  right: 0;
-  bottom: clamp(110px, 15vh, 235px);
-  height: clamp(210px, 30vh, 360px);
-  background: linear-gradient(
-    180deg,
-    rgba(126, 178, 85, 0.16) 0%,
-    rgba(117, 174, 82, 0.52) 34%,
-    rgba(93, 145, 71, 0.76) 72%,
-    rgba(75, 122, 62, 0.82) 100%
-  );
-  pointer-events: none;
-}
-
-.rescue-hero__mountains {
+.rescue-hero__field {
   position: absolute;
   z-index: 1;
-  left: -1vw;
-  right: -1vw;
-  bottom: clamp(145px, 19vh, 225px);
-  height: clamp(210px, 28vh, 330px);
-  background-image: url("../../../assets/Lab_UFO/BG_mountain.webp");
-  background-position: center 62%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 68vh;
+  min-height: 560px;
+  background-image: url("../../../assets/Lab_UFO/BG_field.webp");
+  background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
   pointer-events: none;
@@ -181,10 +164,10 @@ body {
 .front-grass {
   position: absolute;
   z-index: 5;
-  left: 0;
-  right: 0;
-  bottom: -48px;
-  height: clamp(320px, 33vh, 520px);
+  left: -2vw;
+  right: -2vw;
+  bottom: -56px;
+  height: clamp(350px, 38vh, 560px);
   background-image: url("../../../assets/Lab_UFO/front_grass.webp");
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -288,16 +271,9 @@ body {
     min-height: 100svh;
   }
 
-  .rescue-hero::before {
-    bottom: 230px;
-    height: 190px;
-  }
-
-  .rescue-hero__mountains {
-    bottom: 154px;
-    height: 230px;
-    background-size: auto 360%;
-    background-position: center 68%;
+  .rescue-hero__field {
+    height: 72vh;
+    min-height: 560px;
   }
 
   .ufo-beam {
@@ -307,11 +283,13 @@ body {
   }
 
   .front-grass {
-    height: 45vh;
-    min-height: 320px;
+    left: -8vw;
+    right: -8vw;
+    height: 49vh;
+    min-height: 350px;
     background-size: auto 220%;
     background-position: center bottom;
-    bottom: 0px;
+    bottom: -18px;
   }
 
   .hero-panel {
@@ -338,18 +316,18 @@ body {
 
 @media (min-width: 1000px) {
   .front-grass {
-    height: clamp(230px, 33vh, 360px);
+    height: clamp(270px, 36vh, 410px);
     background-size: 100% auto;
     background-position: center bottom;
-    bottom: -16px;
+    bottom: -28px;
   }
 }
 
 @media (min-width: 2000px) {
   .front-grass {
-    height: clamp(230px, 33vh, 360px);
+    height: clamp(270px, 36vh, 410px);
     background-size: 100% auto;
     background-position: center bottom;
-    bottom: -100px;
+    bottom: -112px;
   }
 }
