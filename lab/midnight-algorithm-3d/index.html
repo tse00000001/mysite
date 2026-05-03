@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIDNIGHT ALGORITHM 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div id="webgl-container" aria-hidden="true"></div>
+    <div id="lyric-flash">SYSTEM OVERRIDE</div>
+    <a class="back-link" href="../index.html">Back to Lab</a>
+
+    <div id="ui-layer">
+        <header class="site-header">
+            <div class="brand-panel">
+                <h1>MIDNIGHT ALGORITHM 3D</h1>
+                <p>Audio Reactive Morphing x Bloom / Coder: Tara37</p>
+                <div class="upload-row">
+                    <label for="audio-upload" class="upload-label">LOAD MP3</label>
+                    <input type="file" id="audio-upload" accept="audio/*">
+                    <span id="file-name-display">Select track to analyze...</span>
+                </div>
+            </div>
+            <div class="system-status">
+                <span id="status-text" class="status-offline">OFFLINE</span>
+                <span>MORPH &amp; BLOOM: READY</span>
+            </div>
+        </header>
+
+        <footer class="control-footer">
+            <button id="play-btn" class="neon-btn" type="button">Initialize System</button>
+        </footer>
+    </div>
+
+    <audio id="audio-player" crossorigin="anonymous"></audio>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
