@@ -202,6 +202,28 @@ body::before {
   align-self: end;
 }
 
+.lab-card--midnight .lab-card__meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+}
+
+.lab-card--midnight .lab-card__meta span:last-child {
+  justify-self: end;
+  text-align: right;
+}
+
+.lab-card--midnight .lab-card__title {
+  line-height: 1;
+}
+
+.lab-card__title-code {
+  font-family: "Manrope", sans-serif;
+  font-size: 0.78em;
+  font-weight: 500;
+  letter-spacing: 0;
+  vertical-align: 0.08em;
+}
+
 .lab-card[aria-disabled="true"] .lab-card__link {
   color: rgba(63, 121, 184, 0.48);
 }
