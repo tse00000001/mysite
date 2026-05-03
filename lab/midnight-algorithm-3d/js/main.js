@@ -19,14 +19,14 @@ let audioSource = null;
 let objectUrl = null;
 
 const lyricsWords = [
-  "NIGHT",
-  "SYSTEM",
-  "HACK",
   "PULSE",
-  "URBAN",
-  "RUSH",
   "NEON",
-  "GLITCH",
+  "BLOOM",
+  "BEAT",
+  "WAVE",
+  "CORE",
+  "LIGHT",
+  "SYNC",
 ];
 
 function setStatus(text, className) {
